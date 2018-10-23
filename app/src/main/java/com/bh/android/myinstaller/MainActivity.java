@@ -26,14 +26,12 @@ public class MainActivity extends AppCompatActivity {
 
     private final String TAG = "BH_" + this.getClass().getSimpleName();
 
-    private Button mButton2InstallApp = null;
     private TextView mTextViewInstallable = null;
 
     private PackageManager mPkgMgr = null;
 
     private Context mContext = null;
 
-    private final int MY_PERMISSIONS_REQUEST_INSTALL_PACKAGES = 1001;
     private final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1002;
     private final int REQEUST_CODE = 1234;
 
@@ -71,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
                     // permission denied, boo! Disable the
                     // functionality that depends on this permission.
                 }
-                return;
             }
 
             // other 'case' lines to check for other
@@ -81,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void callInstallProcess() {
         try {
-            Intent intent = new Intent(Intent.ACTION_VIEW);
             String targetPkgName = "com.syezon.wifikey.apk";
             File apkFile = new File(
                     Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
@@ -122,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
         mContext = this;
         mPkgMgr = mContext.getPackageManager();
 
-        mButton2InstallApp = (Button) findViewById(R.id.button_to_request_install);
+        Button mButton2InstallApp = findViewById(R.id.button_to_request_install);
         mButton2InstallApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,5 +1,7 @@
 # MyInstaller
 
+Demo Package install on Android 8.0 (Oreo)  
+
 ### How to Test.
 1. Push Apk into download folder for testing.
 <code>
